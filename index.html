@@ -336,25 +336,29 @@
             font-size: 0.85rem;
         }
 
-        #loginOverlay {
+       #loginOverlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: linear-gradient(135deg, #051409 0%, #003314 50%, #0a0a0a 100%);
-            z-index: 99999;
+            z-index: 9999999;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 15px;
+            overflow-y: auto;
         }
         .login-card {
             background: rgba(5, 22, 11, 0.92);
             border: 2px solid #ffd700;
             border-radius: 16px;
-            padding: 30px;
-            width: 90%;
-            max-width: 400px;
+            padding: 25px 20px;
+            width: 100%;
+            max-width: 380px;
             box-shadow: 0 0 30px rgba(255,215,0,0.3);
             text-align: center;
+            position: relative;
+            z-index: 10000000;
         }
         .login-card h2 { color: #ffd700; margin-bottom: 20px; font-size: 1.8rem; }
 
@@ -1121,10 +1125,12 @@
     }
 
     function showCustomAlert(title, message, iconClass = "fa-check-circle") {
+        const modal = document.getElementById("customDialogModal");
+        modal.style.zIndex = "10000001";
         document.getElementById("dialogTitle").innerHTML = `<i class="fas ${iconClass}"></i> ${title}`;
         document.getElementById("dialogMessage").innerText = message;
         document.getElementById("dialogActions").innerHTML = `<button class="btn btn-primary" onclick="closeModal('customDialogModal')" style="width:100%;">OK</button>`;
-        document.getElementById("customDialogModal").style.display = "flex";
+        modal.style.display = "flex";
     }
 
     function showCustomConfirm(title, message, onConfirmCallback) {
