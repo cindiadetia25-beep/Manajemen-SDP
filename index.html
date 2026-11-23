@@ -601,16 +601,8 @@
             </div>
             
             <div class="form-group">
-                <label>Hari / Pertemuan Latihan Rutin (Bisa Ketik Langsung)</label>
-                <input type="text" id="absensiPertemuan" list="listPertemuanSaran" value="Pertemuan 1 (Senin)" placeholder="Ketik Hari / Pertemuan..." required>
-                <datalist id="listPertemuanSaran">
-                    <option value="Pertemuan 1 (Senin)">
-                    <option value="Pertemuan 2 (Selasa)">
-                    <option value="Pertemuan 3 (Rabu)">
-                    <option value="Pertemuan 4 (Kamis)">
-                    <option value="Pertemuan 5 (Jumat)">
-                    <option value="Pertemuan 6 (Sabtu)">
-                </datalist>
+            <label>Hari / Pertemuan Latihan Rutin</label>
+            <input type="text" id="absensiPertemuan" placeholder="Contoh: Pertemuan 1 (Senin)" required>
             </div>
 
             <div class="form-group">
@@ -648,9 +640,6 @@
             <span><strong>Filter Pertemuan:</strong></span>
             <select id="filterRekapPertemuan" onchange="renderPreviewAbsensi()" style="padding: 8px; border-radius: 6px; background: #0a0a0a; color: #fff; border: 1px solid #ffd700;">
                 <option value="semua">Semua Pertemuan</option>
-                <option value="Pertemuan 1">Pertemuan 1 (Senin)</option>
-                <option value="Pertemuan 2">Pertemuan 2 (Selasa)</option>
-                <option value="Pertemuan 3">Pertemuan 3 (Rabu)</option>
             </select>
 
             <span><strong>Filter Keterangan:</strong></span>
@@ -874,8 +863,9 @@
             justify-content: space-between;
             font-family: 'AMCAP Eternal', 'Segoe UI', sans-serif;">
             
-            <div>
-                <img src="assets/logo-paskibra.png" alt="Logo Paskibra" style="width: 48px; height: 48px; margin-bottom: 6px; object-fit: contain;">
+           <div>
+                <!-- Ubah src menjadi assets/FIX.png -->
+                <img src="assets/FIX.png" alt="Logo Paskibra" style="width: 48px; height: 48px; margin-bottom: 6px; object-fit: contain;">
                 <h4 style="color: #ffd700; margin: 0; font-size: 0.95rem; letter-spacing: 1px; line-height: 1.1;">PASKIBRA SMK NEGERI 1 RANCAH</h4>
                 <p style="font-size: 0.7rem; color: #e6c200; margin-top: 2px; letter-spacing: 1px;">KARTU TANDA ANGGOTA</p>
                 <div style="width: 80%; height: 1px; background: rgba(255, 215, 0, 0.4); margin: 6px auto;"></div>
@@ -1219,9 +1209,33 @@
         populateFilterAnggotaOptions();
         renderTableMaster();
         populateSelectAnggota();
+        populateFilterPertemuanOptions();
         renderPreviewAbsensi();
         populateFilterOROptions();
         renderTableOR();
+    }
+
+    function populateFilterPertemuanOptions() {
+        const selectPertemuan = document.getElementById("filterRekapPertemuan");
+        if (!selectPertemuan) return;
+        const valSebelumnya = selectPertemuan.value || "semua";
+        const setPertemuan = new Set();
+
+        globalAbsensi.forEach(a => {
+            let p = a["Pertemuan Ke -"] || a.Pertemuan || a.pertemuan || "";
+            if (!p.includes("Pertemuan") && a.Keterangan && a.Keterangan.includes("Pertemuan")) {
+                p = a.Keterangan;
+            }
+            if (p && String(p).trim() !== "" && p !== "-") {
+                setPertemuan.add(String(p).trim());
+            }
+        });
+
+        selectPertemuan.innerHTML = '<option value="semua">Semua Pertemuan</option>';
+        Array.from(setPertemuan).sort().forEach(p => {
+            selectPertemuan.innerHTML += `<option value="${p}">${p}</option>`;
+        });
+        selectPertemuan.value = setPertemuan.has(valSebelumnya) ? valSebelumnya : "semua";
     }
 
     function populateFilterAnggotaOptions() {
@@ -2164,7 +2178,8 @@ async function downloadCardAsPdf() {
             font-family: 'AMCAP Eternal', 'Segoe UI', sans-serif;">
             
             <div style="width: 100%;">
-                <img src="assets/logo-paskibra.png" crossorigin="anonymous" style="width: 55px; height: 55px; margin-bottom: 6px; object-fit: contain;">
+                <!-- Ubah src menjadi assets/FIX.png -->
+                <img src="assets/FIX.png" crossorigin="anonymous" style="width: 55px; height: 55px; margin-bottom: 6px; object-fit: contain;">
                 <h4 style="color: #ffd700; margin: 0; font-size: 1.1rem; letter-spacing: 1px; line-height: 1.15;">PASKIBRA SMK NEGERI 1 RANCAH</h4>
                 <p style="font-size: 0.8rem; color: #e6c200; margin-top: 3px; letter-spacing: 1px;">KARTU TANDA ANGGOTA</p>
                 <div style="width: 85%; height: 1.5px; background: rgba(255, 215, 0, 0.45); margin: 8px auto 0 auto;"></div>
@@ -2352,8 +2367,9 @@ function printAllCardsMassal() {
                         font-family: 'AMCAP Eternal', 'Segoe UI', sans-serif;">
                         
                         <div>
-                            <img src="assets/logo-paskibra.png" style="width: 46px; height: 46px; margin-bottom: 4px; object-fit: contain;">
-                            <h4 style="color: #ffd700; margin: 0; font-size: 0.95rem; letter-spacing: 1px; line-height: 1.1;">PASKIBRA SMK NEGERI 1 RANCAH</h4>
+                        <!-- Ubah src menjadi assets/FIX.png -->
+                        <img src="assets/FIX.png" style="width: 46px; height: 46px; margin-bottom: 4px; object-fit: contain;">
+                        <h4 style="color: #ffd700; margin: 0; font-size: 0.95rem; letter-spacing: 1px; line-height: 1.1;">PASKIBRA SMK NEGERI 1 RANCAH</h4>
                             <p style="font-size: 0.7rem; color: #e6c200; margin-top: 2px; letter-spacing: 1px;">KARTU TANDA ANGGOTA</p>
                             <div style="width: 80%; height: 1px; background: rgba(255, 215, 0, 0.4); margin: 6px auto;"></div>
                         </div>
