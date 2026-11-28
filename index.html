@@ -177,26 +177,27 @@
 
         .btn-refresh-header:hover { transform: translateY(-2px); opacity: 0.95; }
 
-        .nav-tabs { 
-            display: flex; 
-            gap: 8px; 
-            margin-bottom: 20px; 
-            justify-content: space-between; 
-            flex-wrap: nowrap; /* Memaksa 4 tombol sejajar 1 baris di desktop */
+       .nav-tabs { 
+         display: flex; 
+         gap: 8px; 
+         margin-bottom: 20px; 
+         justify-content: center; 
+         flex-wrap: wrap; 
         }
 
-        .tab-btn { 
-            padding: 10px 12px; 
-            background: rgba(0, 0, 0, 0.65); 
-            border: 1px solid rgba(255, 215, 0, 0.35); 
-            color: #fff; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-size: 0.95rem; /* Disesuaikan agar 4 menu sejajar rapi */
-            transition: all 0.3s ease; 
-            flex: 1;
-            text-align: center;
-            white-space: nowrap;
+     .tab-btn { 
+         padding: 10px 14px; 
+         background: rgba(0, 0, 0, 0.65); 
+         border: 1px solid rgba(255, 215, 0, 0.35); 
+         color: #fff; 
+         border-radius: 10px; 
+         cursor: pointer; 
+         font-size: 0.9rem; 
+         transition: all 0.3s ease; 
+         flex: 1 1 calc(33.33% - 8px);
+         min-width: 190px;
+         text-align: center;
+         white-space: nowrap;
         }
 
         .tab-btn.active, .tab-btn:hover { 
@@ -341,7 +342,7 @@
             font-size: 0.85rem;
         }
 
-       #loginOverlay {
+      #loginOverlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -397,111 +398,32 @@
         .modal-content p { color: #e6c200; font-size: 1.05rem; margin-bottom: 20px; line-height: 1.4; }
         .modal-actions { display: flex; gap: 12px; justify-content: center; }
 
-@media screen and (max-width: 768px) {
-            html {
-                font-size: 11px !important; /* Menyesuaikan skala dasar khusus layar HP */
-            }
-            body {
-                padding: 10px !important;
-            }
-            header { 
-                padding: 10px 5px !important; 
-                margin-bottom: 15px !important;
-            }
-            .version-badge {
-                font-size: 0.75rem !important;
-                padding: 3px 10px !important;
-            }
-            .header-content > div {
-                flex-direction: column !important;
-                gap: 8px !important;
-            }
-            .header-content h1 { 
-                font-size: 1.35rem !important; 
-                line-height: 1.25 !important; 
-            }
-            .header-content p { 
-                font-size: 0.85rem !important; 
-                margin-bottom: 10px !important; 
-            }
-            .custom-logo {
-                width: 45px !important;
-                height: 45px !important;
-            }
-            .clock-box {
-                font-size: 0.85rem !important;
-                padding: 5px 12px !important;
-            }
-            .btn-refresh-header, header .btn-delete {
-                font-size: 0.85rem !important;
-                padding: 6px 12px !important;
-            }
-            .nav-tabs { 
-                display: flex !important; 
-                flex-direction: column !important; 
-                gap: 8px !important; 
-                width: 100% !important; 
-            }
-            .tab-btn { 
-                width: 100% !important; 
-                text-align: center !important; 
-                padding: 10px !important; 
-                font-size: 0.95rem !important; 
-            }
-            .card {
-                padding: 15px !important;
-            }
-            .card h2 {
-                font-size: 1.35rem !important;
-                line-height: 1.25 !important;
-            }
-            .card h3 {
-                font-size: 1.15rem !important;
-                line-height: 1.25 !important;
-            }
-            .form-grid {
-                grid-template-columns: 1fr !important; /* Form tersusun 1 kolom rapi di HP */
-                gap: 10px !important;
-            }
-            .form-group label {
-                font-size: 0.9rem !important;
-                line-height: 1.3 !important;
-            }
-            .form-group input, .form-group select {
-                font-size: 14px !important;
-                padding: 8px 10px !important;
-            }
-            #docGallery p {
-                font-size: 0.95rem !important;
-            }
-            .action-box { 
-                display: flex !important; 
-                flex-direction: column !important; 
-                gap: 8px !important; 
-                width: 100% !important; 
-            }
-            .action-box .btn { 
-                width: 100% !important; 
-                justify-content: center !important; 
-                margin: 0 !important; 
-            }
-            .table-wrapper { 
-                width: 100% !important; 
-                overflow-x: auto !important; 
-                -webkit-overflow-scrolling: touch; 
-                border-radius: 8px; 
-            }
+        @media screen and (max-width: 768px) {
+            html { font-size: 11px !important; }
+            body { padding: 10px !important; }
+            header { padding: 10px 5px !important; margin-bottom: 15px !important; }
+            .version-badge { font-size: 0.75rem !important; padding: 3px 10px !important; }
+            .header-content > div { flex-direction: column !important; gap: 8px !important; }
+            .header-content h1 { font-size: 1.35rem !important; line-height: 1.25 !important; }
+            .header-content p { font-size: 0.85rem !important; margin-bottom: 10px !important; }
+            .custom-logo { width: 45px !important; height: 45px !important; }
+            .clock-box { font-size: 0.85rem !important; padding: 5px 12px !important; }
+            .btn-refresh-header, header .btn-delete { font-size: 0.85rem !important; padding: 6px 12px !important; }
+            .nav-tabs { display: flex !important; flex-direction: column !important; gap: 8px !important; width: 100% !important; }
+            .tab-btn { width: 100% !important; flex: none !important; text-align: center !important; padding: 10px !important; font-size: 0.95rem !important; }
+            .card { padding: 15px !important; }
+            .card h2 { font-size: 1.35rem !important; line-height: 1.25 !important; }
+            .card h3 { font-size: 1.15rem !important; line-height: 1.25 !important; }
+            .form-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+            .form-group label { font-size: 0.9rem !important; line-height: 1.3 !important; }
+            .form-group input, .form-group select { font-size: 14px !important; padding: 8px 10px !important; }
+            #docGallery p, #docGalleryKhusus p { font-size: 0.95rem !important; }
+            .action-box { display: flex !important; flex-direction: column !important; gap: 8px !important; width: 100% !important; }
+            .action-box .btn { width: 100% !important; justify-content: center !important; margin: 0 !important; }
+            .table-wrapper { width: 100% !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; border-radius: 8px; }
             table { min-width: 650px !important; }
-            .modal-content { 
-                width: 92% !important; 
-                max-width: 92% !important; 
-                padding: 15px !important; 
-                margin: 10px auto !important; 
-            }
-            .modal-actions { 
-                flex-direction: column !important; 
-                gap: 8px !important; 
-            }
+            .modal-content { width: 92% !important; max-width: 92% !important; padding: 15px !important; margin: 10px auto !important; }
+            .modal-actions { flex-direction: column !important; gap: 8px !important; }
             .modal-actions .btn { width: 100% !important; }
         }
     </style>
@@ -570,12 +492,13 @@
     <hr class="section-divider">
 
     <div class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('tab-anggota', this)"><i class="fas fa-address-book"></i> DAFTAR ANGGOTA PASKIBRA</button>
-    <button class="tab-btn" onclick="switchTab('tab-absensi', this)"><i class="fas fa-calendar-check"></i> ABSENSI LATIHAN RUTIN</button>
-    <!-- TAB BARU DIREKAP LATIHAN RUTIN -->
-    <button class="tab-btn" onclick="switchTab('tab-rekap', this)"><i class="fas fa-list-alt"></i> REKAP LATIHAN RUTIN</button>
-    <button class="tab-btn" onclick="switchTab('tab-recruitment', this)"><i class="fas fa-user-plus"></i> OPEN RECRUITMENT</button>
-</div>
+        <button class="tab-btn active" onclick="switchTab('tab-anggota', this)"><i class="fas fa-address-book"></i> DAFTAR ANGGOTA PASKIBRA</button>
+        <button class="tab-btn" onclick="switchTab('tab-absensi', this)"><i class="fas fa-calendar-check"></i> ABSENSI LATIHAN RUTIN</button>
+        <button class="tab-btn" onclick="switchTab('tab-absensi-khusus', this)"><i class="fas fa-trophy"></i> ABSENSI LATIHAN KHUSUS</button>
+        <button class="tab-btn" onclick="switchTab('tab-rekap', this)"><i class="fas fa-list-alt"></i> REKAP LATIHAN RUTIN</button>
+        <button class="tab-btn" onclick="switchTab('tab-rekap-khusus', this)"><i class="fas fa-clipboard-list"></i> REKAP LATIHAN KHUSUS</button>
+        <button class="tab-btn" onclick="switchTab('tab-recruitment', this)"><i class="fas fa-user-plus"></i> OPEN RECRUITMENT</button>
+    </div>
 
     <hr class="section-divider">
 
@@ -778,6 +701,121 @@
         </table>
     </div>
 </div>
+    <!-- TAB ABSENSI LATIHAN KHUSUS -->
+    <div id="tab-absensi-khusus" class="card tab-content">
+        <h2>UPLOAD DOKUMENTASI FOTO LATIHAN KHUSUS (LOMBA)</h2>
+        <form onsubmit="submitDokumentasiFotoKhusus(event)" style="margin-bottom: 20px;">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>SESI / HARI LATIHAN KHUSUS</label>
+                    <input type="text" id="docPertemuanKhusus" placeholder="Contoh: Latihan Lomba Hari Ke-1" required>
+                </div>
+                <div class="form-group">
+                    <label>KETERANGAN / JUDUL KEGIATAN</label>
+                    <input type="text" id="docKetKhusus" placeholder="Contoh: Pemantapan Variasi Formasi" required>
+                </div>
+                <div class="form-group">
+                    <label>PILIH FOTO DOKUMENTASI</label>
+                    <input type="file" id="docFileInputKhusus" accept="image/*" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> UPLOAD DOKUMENTASI KHUSUS</button>
+        </form>
+        <div id="docGalleryKhusus" class="doc-grid">
+            <p style="color:#e6c200; font-size:0.95rem;">Belum ada foto dokumentasi latihan khusus yang diunggah.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="card" style="background: rgba(0,0,0,0.6); border: 1px solid #ffd700; text-align: center; margin-bottom: 20px;">
+            <h3><i class="fas fa-qrcode"></i> SCAN QR CODE LATIHAN KHUSUS (INSTANT SCAN)</h3>
+            <p style="color: #e6c200; font-size: 0.9rem; margin-bottom: 10px;">Isi Nama Sesi/Hari & Tanggal terlebih dahulu, lalu buka kamera untuk scan otomatis</p>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 15px;">
+                <button type="button" class="btn btn-primary" onclick="startQRScannerKhusus()"><i class="fas fa-camera"></i> BUKA KAMERA</button>
+                <button type="button" class="btn btn-delete" id="btnStopScanKhusus" onclick="stopQRScannerKhusus()" style="display: none;"><i class="fas fa-stop-circle"></i> STOP KAMERA</button>
+            </div>
+            <div id="readerKhusus" style="width: 100%; max-width: 400px; margin: 0 auto; border-radius: 10px; overflow: hidden;"></div>
+        </div>
+
+        <h2>INPUT ABSENSI LATIHAN KHUSUS (MANUAL ADMIN)</h2>
+        <form id="formAbsensiKhusus" onsubmit="submitAbsensiKhusus(event)">
+            <div class="form-group">
+                <label>Cari / Pilih Anggota (Cari atau Pilih Berurutan)</label>
+                <select id="absensiSelectNamaKhusus" required style="width:100%; margin-bottom:5px;">
+                    <option value="">-- PILIH ANGGOTA BERURUTAN --</option>
+                </select>
+                <input type="text" id="absensiSearchInputKhusus" placeholder="Atau ketik pencarian NRA / Nama di sini..." oninput="filterDropdownAnggotaKhusus(this.value)">
+            </div>
+            <div class="form-group">
+                <label>Sesi / Hari Latihan Khusus (Lomba)</label>
+                <input type="text" id="absensiPertemuanKhusus" placeholder="Contoh: Latihan Lomba Hari Ke-1 (Senin)" required>
+            </div>
+            <div class="form-group">
+                <label>PILIH TANGGAL PRESENSI</label>
+                <input type="date" id="absensiTanggalInputKhusus" required>
+            </div>
+            <div class="form-group">
+                <label>Keterangan Kehadiran</label>
+                <select id="absensiStatusKhusus" required>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Izin">Izin</option>
+                    <option value="Sakit">Sakit</option>
+                    <option value="Alpha">Alpha</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-save"></i> SIMPAN ABSENSI LATIHAN KHUSUS</button>
+        </form>
+    </div>
+
+    <!-- TAB REKAP LATIHAN KHUSUS -->
+    <div id="tab-rekap-khusus" class="card tab-content">
+        <h2>REKAP ABSENSI LATIHAN KHUSUS (LOMBA)</h2>
+        <div class="action-box">
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <span><strong>Filter Waktu:</strong></span>
+                <select id="filterRekapTipeKhusus" onchange="renderPreviewAbsensiKhusus()" style="padding: 8px; border-radius: 6px; background: #0a0a0a; color: #fff; border: 1px solid #ffd700;">
+                    <option value="semua">Semua Riwayat</option>
+                    <option value="mingguan">Rekap Mingguan</option>
+                    <option value="bulanan">Rekap Bulanan</option>
+                </select>
+                <span><strong>Filter Sesi/Hari:</strong></span>
+                <select id="filterRekapPertemuanKhusus" onchange="renderPreviewAbsensiKhusus()" style="padding: 8px; border-radius: 6px; background: #0a0a0a; color: #fff; border: 1px solid #ffd700;">
+                    <option value="semua">Semua Sesi</option>
+                </select>
+                <span><strong>Filter Keterangan:</strong></span>
+                <select id="filterRekapStatusKhusus" onchange="renderPreviewAbsensiKhusus()" style="padding: 8px; border-radius: 6px; background: #0a0a0a; color: #fff; border: 1px solid #ffd700;">
+                    <option value="semua">Semua Status</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Izin">Izin</option>
+                    <option value="Sakit">Sakit</option>
+                    <option value="Alpha">Alpha</option>
+                </select>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-download" onclick="downloadExcelDenganKop('absensiKhusus')"><i class="fas fa-file-download"></i> DOWNLOAD REKAP EXCEL KHUSUS</button>
+                <button class="btn btn-danger-all" onclick="confirmClearAll('absensiKhusus')"><i class="fas fa-trash-restore"></i> HAPUS SEMUA REKAP KHUSUS</button>
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:40px; text-align:center; white-space:nowrap;">NO.</th>
+                        <th style="width:100px; white-space:nowrap;">TANGGAL</th>
+                        <th style="width:100px; white-space:nowrap;">NRA</th>
+                        <th style="min-width:160px; white-space:nowrap;">NAMA LENGKAP</th>
+                        <th style="width:80px; text-align:center; white-space:nowrap;">KELAS</th>
+                        <th style="min-width:150px; white-space:nowrap;">SESI / HARI</th>
+                        <th style="width:120px; white-space:nowrap;">KETERANGAN</th>
+                        <th style="width:130px; text-align:center; white-space:nowrap;">AKSI</th>
+                    </tr>
+                </thead>
+                <tbody id="tablePreviewAbsensiKhusus">
+                    <tr><td colspan="8" style="text-align:center;"><i class="fas fa-spinner fa-spin"></i> Memuat preview rekap latihan khusus...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <!-- ==================================================================
          6. TAB 3: OPEN RECRUITMENT
@@ -915,6 +953,7 @@
         <form onsubmit="saveEditAbsensi(event)">
             <input type="hidden" id="editAbsensiNama">
             <input type="hidden" id="editAbsensiRawTs">
+            <input type="hidden" id="editAbsensiMode" value="rutin">
             <div class="form-group" style="text-align: left;">
                 <label>NAMA ANGGOTA</label>
                 <input type="text" id="editAbsensiNamaView" readonly style="background: rgba(255,215,0,0.15); color: #ffd700;">
@@ -1025,13 +1064,19 @@
     
     let globalDataMaster = [];
     let globalAbsensi = [];
+    let globalAbsensiKhusus = [];
     let globalRecruitment = [];
     let currentFilteredAbsensi = [];
+    let currentFilteredAbsensiKhusus = [];
     let globalDokumentasi = [];
+    let globalDokumentasiKhusus = [];
     let html5QrcodeScanner = null;
+    let html5QrcodeScannerKhusus = null;
 
     let lastScannedNra = "";
     let lastScanTime = 0;
+    let lastScannedNraKhusus = "";
+    let lastScanTimeKhusus = 0;
 
     // ============================================================================
     // LOGIKA SCANNER QR CODE OTOMATIS (LANGSUNG PRESENSI WITHOUT POP-UP)
@@ -1173,9 +1218,9 @@
     function initDefaultDateAdmin() {
         const today = new Date().toISOString().split('T')[0];
         const adminDateInput = document.getElementById("absensiTanggalInput");
-        if (adminDateInput) {
-            adminDateInput.value = today;
-        }
+        if (adminDateInput) adminDateInput.value = today;
+        const khususDateInput = document.getElementById("absensiTanggalInputKhusus");
+        if (khususDateInput) khususDateInput.value = today;
     }
 
     function togglePasswordVisibility() {
@@ -1295,13 +1340,16 @@
             const res = await fetch(SCRIPT_URL + "?t=" + new Date().getTime());
             const data = await res.json();
 
-            globalDataMaster = data.dataMaster || [];
+           globalDataMaster = data.dataMaster || [];
             globalAbsensi = data.absensi || [];
+            globalAbsensiKhusus = data.absensiKhusus || [];
             globalRecruitment = data.recruitment || [];
             globalDokumentasi = data.dokumentasi || [];
+            globalDokumentasiKhusus = data.dokumentasiKhusus || [];
 
             renderAllTables();
             loadDokumentasiLocal();
+            renderDokumentasiKhusus();
         } catch (err) {
             console.error("Gagal memuat data:", err);
             document.getElementById("tableAnggota").innerHTML = "<tr><td colspan='6' style='text-align:center; color:#ffd700;'>Gagal memuat data. Periksa koneksi Web App Apps Script Anda.</td></tr>";
@@ -1312,8 +1360,11 @@
         populateFilterAnggotaOptions();
         renderTableMaster();
         populateSelectAnggota();
+        populateSelectAnggotaKhusus();
         populateFilterPertemuanOptions();
+        populateFilterPertemuanOptionsKhusus();
         renderPreviewAbsensi();
+        renderPreviewAbsensiKhusus();
         populateFilterOROptions();
         renderTableOR();
     }
@@ -1482,10 +1533,11 @@
     }
 
     function confirmClearAll(section) {
-        let sectionName = section === 'anggota' ? 'DATA MASTER ANGGOTA' : (section === 'absensi' ? 'REKAP ABSENSI' : 'DATA OPEN RECRUITMENT');
+        let sectionName = section === 'anggota' ? 'DATA MASTER ANGGOTA' : (section === 'absensi' ? 'REKAP ABSENSI RUTIN' : (section === 'absensiKhusus' ? 'REKAP ABSENSI KHUSUS' : 'DATA OPEN RECRUITMENT'));
         showCustomConfirm("HAPUS SEMUA DATA", `PERINGATAN! Seluruh isi ${sectionName} akan dihapus secara permanen. Lanjutkan?`, () => {
             if (section === 'anggota') globalDataMaster = [];
             else if (section === 'absensi') { globalAbsensi = []; currentFilteredAbsensi = []; }
+            else if (section === 'absensiKhusus') { globalAbsensiKhusus = []; currentFilteredAbsensiKhusus = []; }
             else if (section === 'recruitment') globalRecruitment = [];
 
             renderAllTables();
@@ -1802,12 +1854,13 @@ function renderPreviewAbsensi() {
         });
     });
 }
-    function openEditAbsensiModal(nama, pertemuan, keterangan, rawTs) {
+    function openEditAbsensiModal(nama, pertemuan, keterangan, rawTs, mode = 'rutin') {
         document.getElementById("editAbsensiNama").value = nama;
         document.getElementById("editAbsensiNamaView").value = nama;
         document.getElementById("editAbsensiPertemuan").value = pertemuan;
         document.getElementById("editAbsensiKeterangan").value = keterangan;
         document.getElementById("editAbsensiRawTs").value = rawTs;
+        document.getElementById("editAbsensiMode").value = mode;
         document.getElementById("editAbsensiModal").style.display = "flex";
     }
 
@@ -1817,25 +1870,28 @@ function renderPreviewAbsensi() {
         const pertemuan = document.getElementById("editAbsensiPertemuan").value;
         const keterangan = document.getElementById("editAbsensiKeterangan").value;
         const rawTs = document.getElementById("editAbsensiRawTs").value;
+        const mode = document.getElementById("editAbsensiMode").value || "rutin";
 
         closeModal("editAbsensiModal");
 
-        const idx = globalAbsensi.findIndex(a => {
+        const targetArray = (mode === "khusus") ? globalAbsensiKhusus : globalAbsensi;
+        const idx = targetArray.findIndex(a => {
             const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
             const rTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
             return rNama.toLowerCase() === nama.toLowerCase() && rTs === rawTs;
         });
 
         if (idx !== -1) {
-            globalAbsensi[idx]["Pertemuan Ke -"] = pertemuan;
-            globalAbsensi[idx]["Pertemuan"] = pertemuan;
-            globalAbsensi[idx]["Keterangan"] = keterangan;
-            renderPreviewAbsensi();
+            targetArray[idx]["Pertemuan Ke -"] = pertemuan;
+            targetArray[idx]["Pertemuan"] = pertemuan;
+            targetArray[idx]["Keterangan"] = keterangan;
+            if (mode === "khusus") renderPreviewAbsensiKhusus();
+            else renderPreviewAbsensi();
         }
 
         showCustomAlert("BERHASIL", "Data absensi berhasil diperbarui!");
         sendDataToSheet({
-            action: "updateAbsensi",
+            action: (mode === "khusus") ? "updateAbsensiKhusus" : "updateAbsensi",
             nama_lengkap: nama,
             timestamp: rawTs,
             pertemuan: pertemuan,
@@ -1843,18 +1899,27 @@ function renderPreviewAbsensi() {
         });
     }
 
-    function deleteAbsensi(nama, rawTs) {
+    function deleteAbsensi(nama, rawTs, mode = 'rutin') {
         showCustomConfirm("HAPUS ABSENSI", `Apakah Anda yakin ingin menghapus data absensi ${nama}?`, () => {
-            globalAbsensi = globalAbsensi.filter(a => {
-                const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
-                const rTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
-                return !(rNama.toLowerCase() === nama.toLowerCase() && rTs === rawTs);
-            });
+            if (mode === "khusus") {
+                globalAbsensiKhusus = globalAbsensiKhusus.filter(a => {
+                    const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
+                    const rTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
+                    return !(rNama.toLowerCase() === nama.toLowerCase() && rTs === rawTs);
+                });
+                renderPreviewAbsensiKhusus();
+            } else {
+                globalAbsensi = globalAbsensi.filter(a => {
+                    const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
+                    const rTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
+                    return !(rNama.toLowerCase() === nama.toLowerCase() && rTs === rawTs);
+                });
+                renderPreviewAbsensi();
+            }
 
-            renderPreviewAbsensi();
             showCustomAlert("TERHAPUS", "Data absensi berhasil dihapus!");
             sendDataToSheet({
-                action: "deleteAbsensi",
+                action: (mode === "khusus") ? "deleteAbsensiKhusus" : "deleteAbsensi",
                 nama_lengkap: nama,
                 timestamp: rawTs
             });
@@ -2077,7 +2142,7 @@ function renderPreviewAbsensi() {
             return showCustomAlert("SISTEM PENGAMANAN", `Anggota bernama ${nama} sudah memiliki data absensi untuk tanggal ${formattedDateIndo}! Pengisian ganda ditolak.`, "fa-times-circle");
         }
 
-        switchTab('tab-rekap', document.querySelectorAll('.tab-btn')[2]);
+        switchTab('tab-rekap', document.querySelectorAll('.tab-btn')[3]);
         globalAbsensi.unshift({
             TimeStamp: formattedDateIndo,
             NRA: nis,
@@ -2139,13 +2204,20 @@ function renderPreviewAbsensi() {
             title = "LAPORAN DATA MASTER ANGGOTA PASKIBRA SMK NEGERI 1 RANCAH";
             dataToExport = globalDataMaster;
             filename = "Data_Anggota_Paskibra.xls";
-        } else if (tipe === 'absensi') {
+       } else if (tipe === 'absensi') {
             const filterTipe = document.getElementById("filterRekapTipe").value;
             const filterPertemuan = document.getElementById("filterRekapPertemuan").value;
             const filterStatus = document.getElementById("filterRekapStatus").value;
-            title = `REKAP ABSENSI LATIHAN PASKIBRA (${filterTipe.toUpperCase()} - PERTEMUAN: ${filterPertemuan.toUpperCase()} - STATUS: ${filterStatus.toUpperCase()})`;
-            filename = `Rekap_Absensi_${filterTipe}_${filterPertemuan}_${filterStatus}.xls`;
+            title = `REKAP ABSENSI LATIHAN RUTIN PASKIBRA (${filterTipe.toUpperCase()} - PERTEMUAN: ${filterPertemuan.toUpperCase()} - STATUS: ${filterStatus.toUpperCase()})`;
+            filename = `Rekap_Absensi_Rutin_${filterTipe}_${filterPertemuan}_${filterStatus}.xls`;
             dataToExport = currentFilteredAbsensi.length ? currentFilteredAbsensi : globalAbsensi;
+        } else if (tipe === 'absensiKhusus') {
+            const filterTipe = document.getElementById("filterRekapTipeKhusus").value;
+            const filterPertemuan = document.getElementById("filterRekapPertemuanKhusus").value;
+            const filterStatus = document.getElementById("filterRekapStatusKhusus").value;
+            title = `REKAP ABSENSI LATIHAN KHUSUS LOMBA (${filterTipe.toUpperCase()} - SESI: ${filterPertemuan.toUpperCase()} - STATUS: ${filterStatus.toUpperCase()})`;
+            filename = `Rekap_Absensi_Khusus_${filterTipe}_${filterPertemuan}_${filterStatus}.xls`;
+            dataToExport = currentFilteredAbsensiKhusus.length ? currentFilteredAbsensiKhusus : globalAbsensiKhusus;
         } else if (tipe === 'recruitment') {
             title = "LAPORAN PENDAFTARAN OPEN RECRUITMENT PASKIBRA";
             dataToExport = globalRecruitment;
@@ -2662,6 +2734,338 @@ function printAllCardsMassal() {
         if (navigator.onLine) processOfflineQueue();
     }, 15000);
 
+// ============================================================================
+    // LOGIKA LENGKAP ABSENSI & REKAP LATIHAN KHUSUS (LOMBA)
+    // ============================================================================
+    function startQRScannerKhusus() {
+        const pertemuan = document.getElementById("absensiPertemuanKhusus").value;
+        if (!pertemuan) {
+            return showCustomAlert("PERINGATAN", "Isi Sesi / Hari Latihan Khusus terlebih dahulu sebelum membuka kamera!", "fa-exclamation-circle");
+        }
+        document.getElementById("btnStopScanKhusus").style.display = "inline-flex";
+        html5QrcodeScannerKhusus = new Html5Qrcode("readerKhusus");
+        html5QrcodeScannerKhusus.start(
+            { facingMode: "environment" },
+            { fps: 15, qrbox: { width: 250, height: 250 } },
+            onScanSuccessAutoKhusus
+        ).catch(() => {
+            showCustomAlert("KAMERA ERROR", "Gagal mengakses kamera. Pastikan izin kamera diberikan!", "fa-exclamation-circle");
+        });
+    }
+
+    function stopQRScannerKhusus() {
+        if (html5QrcodeScannerKhusus) {
+            html5QrcodeScannerKhusus.stop().then(() => {
+                document.getElementById("btnStopScanKhusus").style.display = "none";
+                document.getElementById("readerKhusus").innerHTML = "";
+            }).catch(err => console.error(err));
+        }
+    }
+
+    async function onScanSuccessAutoKhusus(decodedText) {
+        const now = Date.now();
+        const scannedNra = decodedText.trim();
+        if (scannedNra === lastScannedNraKhusus && (now - lastScanTimeKhusus) < 3000) return;
+
+        lastScannedNraKhusus = scannedNra;
+        lastScanTimeKhusus = now;
+
+        const anggota = globalDataMaster.find(a => {
+            let rNra = String(a["NRA"] || a["nra"] || a["NIS/NISN"] || a["NIS"] || "").trim();
+            return rNra.toLowerCase() === scannedNra.toLowerCase();
+        });
+
+        if (!anggota) { playBeepSound(); return; }
+
+        const nama = anggota["NAMA LENGKAP"] || anggota["Nama_Lengkap"] || anggota["nama"] || "-";
+        const kelas = anggota["KELAS"] || anggota["Kelas"] || anggota["kelas"] || "-";
+        const pertemuan = document.getElementById("absensiPertemuanKhusus").value || "Latihan Lomba";
+        const status = document.getElementById("absensiStatusKhusus") ? document.getElementById("absensiStatusKhusus").value : "Hadir";
+        const dateVal = document.getElementById("absensiTanggalInputKhusus").value || new Date().toISOString().split('T')[0];
+        const formattedDateIndo = formatDateIndo(dateVal);
+
+        const isDuplicate = globalAbsensiKhusus.some(a => {
+            const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
+            const rawTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
+            return rNama.toLowerCase() === nama.toLowerCase() && formatDateIndo(rawTs) === formattedDateIndo;
+        });
+
+        if (isDuplicate) { playBeepSound(); return; }
+
+        globalAbsensiKhusus.unshift({
+            TimeStamp: formattedDateIndo,
+            NRA: scannedNra,
+            NIS: scannedNra,
+            Nama_Lengkap: nama,
+            Kelas: kelas,
+            Pertemuan: pertemuan,
+            Keterangan: status
+        });
+
+        playBeepSound();
+        renderPreviewAbsensiKhusus();
+
+        sendDataToSheet({
+            action: "addAbsensiKhusus",
+            nra: scannedNra,
+            nama_lengkap: nama,
+            kelas: kelas,
+            pertemuan: pertemuan,
+            keterangan: status,
+            timestamp: formattedDateIndo
+        });
+    }
+
+    function populateSelectAnggotaKhusus() {
+        const select = document.getElementById("absensiSelectNamaKhusus");
+        if (!select) return;
+        select.innerHTML = '<option value="">-- PILIH ANGGOTA BERURUTAN --</option>';
+        globalDataMaster.forEach(a => {
+            let rawNis = a["NRA"] || a["nra"] || a["NIS/NISN"] || a["NIS"] || a["nis"] || "-";
+            const nis = rawNis.toString().trim() || "-";
+            const nama = a["NAMA LENGKAP"] || a["Nama_Lengkap"] || a["nama"] || "-";
+            const kelas = a["KELAS"] || a["Kelas"] || a["kelas"] || "-";
+            select.innerHTML += `<option value="${nama}" data-nis="${nis}">[${nis}] ${nama} - ${kelas}</option>`;
+        });
+    }
+
+    function filterDropdownAnggotaKhusus(query) {
+        const select = document.getElementById("absensiSelectNamaKhusus");
+        const options = select.options;
+        const q = query.toLowerCase();
+        for (let i = 1; i < options.length; i++) {
+            options[i].style.display = options[i].text.toLowerCase().includes(q) ? "" : "none";
+        }
+    }
+
+    function populateFilterPertemuanOptionsKhusus() {
+        const selectPertemuan = document.getElementById("filterRekapPertemuanKhusus");
+        if (!selectPertemuan) return;
+        const valSebelumnya = selectPertemuan.value || "semua";
+        const setPertemuan = new Set();
+
+        globalAbsensiKhusus.forEach(a => {
+            let p = a["Pertemuan Ke -"] || a.Pertemuan || a.pertemuan || "";
+            if (p && String(p).trim() !== "" && p !== "-") setPertemuan.add(String(p).trim());
+        });
+
+        selectPertemuan.innerHTML = '<option value="semua">Semua Sesi</option>';
+        Array.from(setPertemuan).sort().forEach(p => {
+            selectPertemuan.innerHTML += `<option value="${p}">${p}</option>`;
+        });
+        selectPertemuan.value = setPertemuan.has(valSebelumnya) ? valSebelumnya : "semua";
+    }
+
+    async function submitAbsensiKhusus(e) {
+        e.preventDefault();
+        const select = document.getElementById("absensiSelectNamaKhusus");
+        if (!select.value) return showCustomAlert("PERINGATAN", "Pilih anggota terlebih dahulu!", "fa-exclamation-circle");
+
+        const nama = select.value;
+        const rawNis = select.options[select.selectedIndex].getAttribute("data-nis");
+        const nis = rawNis ? rawNis.trim() : "-";
+        const pertemuan = document.getElementById("absensiPertemuanKhusus").value;
+        const keterangan = document.getElementById("absensiStatusKhusus").value;
+        const dateVal = document.getElementById("absensiTanggalInputKhusus").value || new Date().toISOString().split('T')[0];
+        const formattedDateIndo = formatDateIndo(dateVal);
+        const kelas = getKelasByNamaOrNis(nama, nis);
+
+        const isDuplicate = globalAbsensiKhusus.some(a => {
+            const rNama = a.Nama_Lengkap || a.nama_lengkap || a.Nama || "";
+            const rawTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
+            return rNama.toLowerCase() === nama.toLowerCase() && formatDateIndo(rawTs) === formattedDateIndo;
+        });
+
+        if (isDuplicate) {
+            return showCustomAlert("SISTEM PENGAMANAN", `Anggota bernama ${nama} sudah memiliki data absensi khusus pada tanggal ${formattedDateIndo}!`, "fa-times-circle");
+        }
+
+        switchTab('tab-rekap-khusus', document.querySelectorAll('.tab-btn')[4]);
+        globalAbsensiKhusus.unshift({
+            TimeStamp: formattedDateIndo,
+            NRA: nis,
+            NIS: nis,
+            Nama_Lengkap: nama,
+            Kelas: kelas,
+            Pertemuan: pertemuan,
+            Keterangan: keterangan
+        });
+        renderPreviewAbsensiKhusus();
+
+        showCustomAlert("BERHASIL", `Absensi Latihan Khusus ${nama} berhasil disimpan!`);
+        select.value = "";
+        sendDataToSheet({
+            action: "addAbsensiKhusus",
+            nra: nis,
+            nama_lengkap: nama,
+            kelas: kelas,
+            pertemuan: pertemuan,
+            keterangan: keterangan,
+            timestamp: formattedDateIndo
+        });
+    }
+
+    function renderPreviewAbsensiKhusus() {
+        const tbody = document.getElementById("tablePreviewAbsensiKhusus");
+        if (!tbody) return;
+        const tipeWaktu = document.getElementById("filterRekapTipeKhusus").value;
+        const tipePertemuan = document.getElementById("filterRekapPertemuanKhusus").value;
+        const tipeStatus = document.getElementById("filterRekapStatusKhusus").value;
+        tbody.innerHTML = "";
+
+        if (!globalAbsensiKhusus.length) {
+            tbody.innerHTML = "<tr><td colspan='8' style='text-align:center;'>Belum ada data absensi latihan khusus.</td></tr>";
+            currentFilteredAbsensiKhusus = [];
+            return;
+        }
+
+        const now = new Date();
+        currentFilteredAbsensiKhusus = globalAbsensiKhusus.filter(a => {
+            const ket = a.Keterangan || a.keterangan || "Hadir";
+            if (tipeStatus !== 'semua' && ket.toLowerCase() !== tipeStatus.toLowerCase()) return false;
+
+            let p = a["Pertemuan Ke -"] || a.Pertemuan || a.pertemuan || "";
+            if (tipePertemuan !== 'semua' && !p.toLowerCase().includes(tipePertemuan.toLowerCase())) return false;
+
+            if (tipeWaktu === 'semua') return true;
+            const rawTs = a.TimeStamp || a.Timestamp || a.timestamp || "";
+            const d = parseDateSafe(rawTs);
+            if (!d) return true;
+            const diffDays = (now - d) / (1000 * 60 * 60 * 24);
+            if (tipeWaktu === 'mingguan') return diffDays <= 7 && diffDays >= 0;
+            if (tipeWaktu === 'bulanan') return diffDays <= 30 && diffDays >= 0;
+            return true;
+        });
+
+        if (!currentFilteredAbsensiKhusus.length) {
+            tbody.innerHTML = "<tr><td colspan='8' style='text-align:center;'>Tidak ada data absensi khusus yang sesuai filter.</td></tr>";
+            return;
+        }
+
+        const groupedData = {};
+        currentFilteredAbsensiKhusus.forEach(item => {
+            const rawTs = item.TimeStamp || item.Timestamp || item.timestamp || "";
+            const formattedDate = formatDateIndo(rawTs);
+            const p = item["Pertemuan Ke -"] || item.Pertemuan || item.pertemuan || "Latihan Lomba";
+            const groupKey = `${formattedDate} - ${p}`;
+            if (!groupedData[groupKey]) groupedData[groupKey] = [];
+            groupedData[groupKey].push(item);
+        });
+
+        Object.keys(groupedData).forEach(groupKey => {
+            const rows = groupedData[groupKey];
+            tbody.innerHTML += `
+                <tr class="divider-pertemuan">
+                    <td colspan="8"><i class="fas fa-trophy"></i> PEMBATAS KHUSUS: ${groupKey.toUpperCase()}</td>
+                </tr>`;
+
+            rows.forEach((row, groupIndex) => {
+                const rawTs = row.TimeStamp || row.Timestamp || row.timestamp || "";
+                const formattedDate = formatDateIndo(rawTs);
+                const nis = (row.NRA || row.nra || row.NIS || row.nis || '-').toString().trim() || "-";
+                const nama = row.Nama_Lengkap || row.nama_lengkap || row.Nama || '-';
+                const kelas = row.Kelas || row.kelas || getKelasByNamaOrNis(nama, nis);
+                const pertemuan = row["Pertemuan Ke -"] || row.Pertemuan || '-';
+                const keterangan = row.Keterangan || row.keterangan || 'Hadir';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td style="text-align:center; white-space:nowrap;"><strong>${groupIndex + 1}</strong></td>
+                        <td style="white-space:nowrap;"><strong>${formattedDate}</strong></td>
+                        <td style="white-space:nowrap;"><strong>${nis}</strong></td>
+                        <td style="white-space:nowrap;">${nama}</td>
+                        <td style="text-align:center; white-space:nowrap;">${kelas}</td>
+                        <td style="white-space:nowrap;">${pertemuan}</td>
+                        <td style="white-space:nowrap;"><strong>${keterangan}</strong></td>
+                        <td style="text-align:center; white-space:nowrap;">
+                            <button class="btn btn-edit" onclick="openEditAbsensiModal('${nama.replace(/'/g, "\\'")}', '${pertemuan}', '${keterangan}', '${rawTs}', 'khusus')"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-delete" onclick="deleteAbsensi('${nama.replace(/'/g, "\\'")}', '${rawTs}', 'khusus')"><i class="fas fa-trash-alt"></i> Hapus</button>
+                        </td>
+                    </tr>`;
+            });
+        });
+    }
+
+    async function submitDokumentasiFotoKhusus(e) {
+        e.preventDefault();
+        const pertemuan = document.getElementById("docPertemuanKhusus").value;
+        const ket = document.getElementById("docKetKhusus").value.trim();
+        const fileInput = document.getElementById("docFileInputKhusus");
+
+        if (!fileInput.files || !fileInput.files[0]) {
+            return showCustomAlert("PERINGATAN", "Pilih file foto terlebih dahulu!", "fa-exclamation-circle");
+        }
+
+        showCustomAlert("UPLOADING", "Sedang memproses & mengunggah foto latihan khusus...", "fa-spinner fa-spin");
+        try {
+            const compressedBase64 = await compressImageToBase64(fileInput.files[0], 750, 0.6);
+            const tanggalIndo = formatDateIndo(new Date());
+            const docObj = { id: Date.now(), pertemuan, ket, imgData: compressedBase64, tanggal: tanggalIndo };
+
+            if (!globalDokumentasiKhusus) globalDokumentasiKhusus = [];
+            globalDokumentasiKhusus.unshift(docObj);
+            renderDokumentasiKhusus();
+
+            await sendDataToSheet({
+                action: "uploadDokumentasiKhusus",
+                id: docObj.id,
+                pertemuan,
+                ket,
+                imgData: compressedBase64,
+                tanggal: tanggalIndo
+            });
+
+            closeModal('customDialogModal');
+            showCustomAlert("BERHASIL", `Foto ${pertemuan} (${tanggalIndo}) berhasil diunggah!`);
+            e.target.reset();
+        } catch (err) {
+            closeModal('customDialogModal');
+            showCustomAlert("GAGAL", "Gagal memproses foto dokumentasi.", "fa-times-circle");
+        }
+    }
+
+    function renderDokumentasiKhusus() {
+        const gallery = document.getElementById("docGalleryKhusus");
+        if (!gallery) return;
+        gallery.innerHTML = "";
+
+        if (!globalDokumentasiKhusus || !globalDokumentasiKhusus.length) {
+            gallery.innerHTML = `<p style="color:#e6c200; font-size:0.95rem;">Belum ada foto dokumentasi latihan khusus yang diunggah.</p>`;
+            return;
+        }
+
+        globalDokumentasiKhusus.forEach(item => {
+            const pert = item.pertemuan || '-';
+            const tgl = item.tanggal || '-';
+            const ket = item.ket || '-';
+            const fileName = `Dokumentasi_Khusus_${pert.replace(/[^a-zA-Z0-9]/g, '_')}_${tgl.replace(/\//g, '-')}.jpg`;
+            const imgSrc = item.imgData || item.url || '';
+
+            gallery.innerHTML += `
+                <div class="doc-card">
+                    <a href="${imgSrc}" target="_blank">
+                        <img src="${imgSrc}" alt="Dokumentasi Khusus" style="width:100%; height:140px; object-fit:cover; border-radius:8px; border:1px solid #ffd700;">
+                    </a>
+                    <div class="doc-title" style="color:#ffd700; font-weight:bold; margin-top:5px;">${pert}</div>
+                    <div class="doc-desc" style="color:#ffffff; font-size:0.85rem;">${ket}</div>
+                    <div style="color:#e6c200; font-size:0.8rem;"><i class="fas fa-calendar-day"></i> ${tgl}</div>
+                    <div style="display: flex; gap: 6px; justify-content: center; margin-top: 8px;">
+                        <a href="${imgSrc}" download="${fileName}" class="btn btn-download" style="padding:4px 8px; font-size:0.8rem; text-decoration:none;"><i class="fas fa-download"></i> Download</a>
+                        <button class="btn btn-delete" style="padding:4px 8px; font-size:0.8rem;" onclick="deleteDokumentasiKhusus('${item.id}')"><i class="fas fa-trash-alt"></i> Hapus</button>
+                    </div>
+                </div>`;
+        });
+    }
+
+    function deleteDokumentasiKhusus(id) {
+        showCustomConfirm("HAPUS FOTO", "Apakah Anda yakin ingin menghapus foto dokumentasi khusus ini?", () => {
+            globalDokumentasiKhusus = globalDokumentasiKhusus.filter(d => String(d.id) !== String(id));
+            renderDokumentasiKhusus();
+            showCustomAlert("TERHAPUS", "Foto dokumentasi berhasil dihapus!");
+            sendDataToSheet({ action: "deleteDokumentasiKhusus", id: id });
+        });
+    }
+    
     initDefaultDateAdmin();
     checkLoginStatus();
     loadData();
